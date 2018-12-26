@@ -21,7 +21,7 @@ import pymysql.cursors
 
 # In[4]:
 
-
+#MySQL API connection
 conn = pymysql.connect(host='localhost',
                              user='root',
                              password='systemsss',
@@ -32,13 +32,13 @@ conn = pymysql.connect(host='localhost',
 
 # In[5]:
 
-
+#the following content is auto-written by Uipath based on the pre-designed logic according to user's command.
 df = pd.read_sql('SELECT date, AVG(total), SUM(total), MAX(total), MIN(total) FROM bill WHERE date BETWEEN \'2018-07-01\' AND \'2018-07-31\' GROUP BY date', conn)
 
 
 # In[6]:
 
-
+#prepare for line chart labels based on the number of columns selected from database.
 ddate = df['date']
 statis = ('total','SUM(total)','MAX(total)','MIN(total)','AVG(total)')
 labels = list()
@@ -54,7 +54,7 @@ for sta in statis:
 
 # In[7]:
 
-
+#this looks stupid but necessary here, because there is no guarantee which columns would be selected in In[5].
 if 'total' in df.columns:
     iftotal = 1
     dtotal = df['total']
@@ -94,7 +94,7 @@ plt.style.use('ggplot')
 
 
 # In[8]:
-
+#automatically input visualization content by Uipath based on pre-designed logic
 
 plt.figure(figsize=(20,10))
 plt.plot(ddate,dsum)
@@ -129,14 +129,14 @@ df.to_html('desktop/view.html')
 
 # In[12]:
 
-
+#filter conditions gotten from user and passed to here by Uipath
 start_date = '2018-07-01'
 end_date = '2018-07-31'
 
 
 # In[13]:
 
-
+#This time, I learned to used a smarter way to extract data from My SQL and also simpliflying the logic inside Uipath 
 sql = """SELECT person, AVG(total), SUM(total), MAX(total), MIN(total) FROM bill WHERE date BETWEEN %(start_date)s AND %(end_date)s GROUP BY person;"""
 
 
@@ -225,7 +225,7 @@ df2
 
 # In[24]:
 
-
+#Here I used a Chinese module pycharts to make a word cloud
 from pyecharts import WordCloud #事前にAnaconda Terminalでpip install pyecharts必要
 name_list = []
 count_list = []

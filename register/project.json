@@ -1,0 +1,21 @@
+{
+  "name": "register",
+  "description": "Blank Project",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Core.Activities": "18.2.6716.31776",
+    "UiPath.Excel.Activities": "2.3.6682.26635",
+    "UiPath.Mail.Activities": "1.1.6562.21018",
+    "UiPath.PDF.Activities": "1.1.6732.21973",
+    "UiPath.Python.Activities": "1.0.6716.23055",
+    "UiPath.WebAPI.Activities": "1.1.6479.13209"
+  },
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6835.26026",
+  "packOptions": {},
+  "runtimeOptions": {}
+}
